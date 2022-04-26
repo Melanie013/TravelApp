@@ -2,6 +2,7 @@ const router = require("express").Router();
 const express = require('express')
 const hbs = require('hbs')
 
+
 const User = require('../models/User.model')
 
 const loginCheck = () => {
@@ -14,7 +15,7 @@ const loginCheck = () => {
         res.redirect('/login')
       }
     }
-  }
+ } 
 
   router.get("/profile", loginCheck(), (req, res, next) => {
     const loggedInUser = req.session.user.username
@@ -26,8 +27,9 @@ const loginCheck = () => {
     res.render('show')
 })
 */
+
 /*
-router.get("/profile", (req, res, next) => {
+router.get("/profile", isLoggedIn (req, res, next) => {
     User.find()
             
             .then(userDataFromDB => {
@@ -41,13 +43,21 @@ router.get("/profile", (req, res, next) => {
                     })
 
 })
-
 */
 
+router.get("/profile", loginCheck(), (req, res, next) => {
+    loggedInUser = req.session.user.username
+    console.log(`this is the ${loggedInUser}`)
+    res.render("profile/show.hbs", {loggedInUser});
+  });
+
+
+
 
   
   
-  /*router.get('/profile/:id', (req, res, next) => {
+  /*
+  router.get('/profile/:id', (req, res, next) => {
 	// console.log('books id')
 	const id = req.params.id
 	console.log(`This is the ${id}`)
@@ -59,6 +69,11 @@ router.get("/profile", (req, res, next) => {
 		.catch(err => {
 			next(err)
 		})
+
+});
+*/
+
+
 });*/
 /*
 let accessCount = 0
@@ -93,4 +108,4 @@ router.post('/login', (req, res) => {
 })
 
 */
-  module.exports = router;
+module.exports = router;
