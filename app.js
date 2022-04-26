@@ -33,6 +33,9 @@ const projectName = "TravelApp";
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 
+app.use(express.static('public'))
+
+
 // session configuration
 
 const session = require('express-session')

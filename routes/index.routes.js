@@ -16,7 +16,9 @@ const loginCheck = () => {
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index", {
+    style: "index.css"
+  });
 });
 
 
@@ -27,8 +29,9 @@ router.get('/profile', loginCheck(), (req, res, next) => {
 
   const loggedInUser = req.session.user
   console.log(loggedInUser)
-  res.render('profile', { user: loggedInUser })
+  res.render('profile/show.hbs', { user: loggedInUser })
 });
+
 
 
 
