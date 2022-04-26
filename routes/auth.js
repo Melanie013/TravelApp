@@ -15,12 +15,14 @@ router.post('/signup', (req, res, next) => {
 	const { username, password } = req.body
 	// is the password 4+ characters
 	if (password.length < 4) {
-		res.render('signup', { message: 'Ups, your password has to be 4 characters min!' })
+		res.render('signup', { 	style: "signup.css",
+		message: 'Ups, your password has to be 4 characters min!' })
 		return
 	}
 
 	if (username.length === 0) {
-		res.render('signup', { message: 'Your username cannot be empty' })
+		res.render('signup', { style: "signup.css",
+		message: 'Your username cannot be empty' })
 		return
 	}
 
@@ -28,7 +30,7 @@ router.post('/signup', (req, res, next) => {
 		.then(userFromDB => {
 
 			if (userFromDB !== null) {
-				res.render('signup', { message: 'Sorry, your username is already taken' })
+				res.render('signup', { style: "signup.css", message: 'Sorry, your username is already taken' })
 				return
 			} else {
 
@@ -67,7 +69,7 @@ router.post('/login', (req, res, next) => {
 		.then(userFromDB => {
 			if (userFromDB === null) {
 
-                res.render('login', { message: 'Invalid Credentials' })
+                res.render('login', {style: "login.css", message: 'Invalid Credentials' })
 				return
 			}
 
@@ -76,12 +78,12 @@ router.post('/login', (req, res, next) => {
                 req.session.user = userFromDB
 				res.redirect('/profile')
 			} else {
-				res.render('login', { message: 'Invalid Crentials' })
+				res.render('login', {style: "login.css", message: 'Invalid Crentials' })
 			}
 		})
 });
 
-router.get('/logout', (req, res, next) => {
+router.post('/logout', (req, res, next) => {
 	req.session.destroy((err => {
 		if (err) {
 			next(err)
