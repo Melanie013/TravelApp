@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const Journey = require('../models/Journey')
+
 
 
 
@@ -10,10 +12,10 @@ router.get("/journey", (req, res, next) => {
   
 
   router.post('/journey/info', (req, res, next) => {
-    const {destination, date} = req.body
+    const {destination, startDate, endDate } = req.body
     console.log(req.body)
   
-              Journey.create({destination, date})
+              Journey.create({destination, startDate,endDate})
               .then((createdJourney) => {
                   res.redirect('/profile')
                   console.log(`New profile info created: ${createdJourney}.`)

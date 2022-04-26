@@ -7,12 +7,14 @@ const journey = new Schema(
       type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
-    startDate: date,
-    endDate: date
+    startDate: {
+      type: Date,
+    },
+    endDate: {
+      type: Date
   },
-  {
+  
     // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
   }
 );
 
