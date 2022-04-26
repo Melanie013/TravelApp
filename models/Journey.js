@@ -7,7 +7,8 @@ const journey = new Schema(
       type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
-    date: date,
+    startDate: date,
+    endDate: date
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -17,4 +18,4 @@ const journey = new Schema(
 
 const Journey = model("Journey", journey);
 
-module.exports = User;
+module.exports = Journey;

@@ -19,7 +19,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-
+/*
 router.get('/profile', loginCheck(), (req, res, next) => {
 
   res.cookie('myCookie', 'hello server')
@@ -27,10 +27,10 @@ router.get('/profile', loginCheck(), (req, res, next) => {
 
   const loggedInUser = req.session.user
   console.log(loggedInUser)
-  res.render('profile', { user: loggedInUser })
+  res.render('profile/show.hbs', { user: loggedInUser })
 });
 
-
+*/
 
 
 module.exports = router;
