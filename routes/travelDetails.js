@@ -5,6 +5,8 @@ const router = require("express").Router();
 router.get("/journey", (req, res, next) => {
     res.render("journey/info.hbs");
   });
+
+ 
   
 
   router.post('/journey/info', (req, res, next) => {
