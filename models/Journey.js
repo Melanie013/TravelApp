@@ -17,7 +17,10 @@ const journey = new Schema(
     type: Schema.Types.ObjectId,  
     ref: 'User.model'
     
-  }
+  },
+    description: {
+      type: String
+    }
   
     // this second object adds extra properties: `createdAt` and `updatedAt`
   }

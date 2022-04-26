@@ -15,6 +15,7 @@ router.get("/journey/add", (req, res, next) => {
     console.log(`this is a test`, req.params.id)
     console.log(id);
     Journey.findById(id)
+    console.log(`this is a test`,User.findById(id))
       .then(TravelDataFromDB => {
         console.log(`This nice little Data `, TravelDataFromDB)
         res.render('profile/show', { travel: movieDataFromDB })
@@ -29,13 +30,17 @@ router.get("/journey/add", (req, res, next) => {
 
   router.post('/journey/add', (req, res, next) => {
     const loggedInUser = req.session.user._id
-    console.log(req.session.user);
-    const {destination, startDate, endDate } = req.body
-      Journey.create({destination, startDate,endDate, owner: loggedInUser})
+    //console.log(req.session.user);
+    const {destination, startDate, endDate, description} = req.body
+console.log(req.body);
+   // const {description} = req.body
+    console.log(`bla BLABLALALALLLALALA`,req.body)
+      Journey.create({destination, startDate,endDate, owner: loggedInUser, description})
               .then((createdJourney) => {
+                 // User.findByIdAndUpdate(loggedInUser,{description}).then(() => 
                   res.redirect('/profile')
                 //  console.log(`New profile info created: ${destination}.`)
-              })
+  })
               .catch(error => next(error));
     //console.log(req.body)
   

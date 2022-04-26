@@ -20,6 +20,7 @@ const loginCheck = () => {
   router.get("/profile", loginCheck(), (req, res, next) => {
     const loggedInUser = req.session.user.username
     const userId = req.session.user._id
+    //const userDesctiption = req.session.user.description
 
     Journey.find({owner: userId})
     .then(allJourneysByUser => {
