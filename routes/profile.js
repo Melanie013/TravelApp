@@ -15,7 +15,18 @@ const loginCheck = () => {
         res.redirect('/login')
       }
     }
-  } 
+ } 
+
+  router.get("/profile", loginCheck(), (req, res, next) => {
+    const loggedInUser = req.session.user.username
+   console.log(`this is the`,loggedInUser)
+    res.render("profile/show.hbs", {loggedInUser});
+  });
+/*
+  router.get('/', (req, res) => {
+    res.render('show')
+})
+*/
 
 /*
 router.get("/profile", isLoggedIn (req, res, next) => {
@@ -33,11 +44,16 @@ router.get("/profile", isLoggedIn (req, res, next) => {
 
 })
 */
+
 router.get("/profile", loginCheck(), (req, res, next) => {
     loggedInUser = req.session.user.username
     console.log(`this is the ${loggedInUser}`)
     res.render("profile/show.hbs", {loggedInUser});
   });
+
+
+
+
   
   
   /*
@@ -53,7 +69,43 @@ router.get("/profile", loginCheck(), (req, res, next) => {
 		.catch(err => {
 			next(err)
 		})
+
 });
 */
 
-  module.exports = router;
+
+});*/
+/*
+let accessCount = 0
+
+function counter() {
+    // the middleware always returns a request handler
+    return (req, res, next) => {
+        // 
+        accessCount++
+        console.log(accessCount)
+        // now we proceed as intended
+        next();
+    }
+}
+
+
+// this registers a middleware globally (for all the routes)
+router.use(counter())
+*/
+
+// this is how you add a middleware to one route
+
+/*
+
+router.post('/login', (req, res) => {
+    // access the request body
+    // const username = req.body.username
+    // const password = req.body.password
+    const { username } = req.body
+    console.log(req.body)
+    res.render('profile', { username: username })
+})
+
+*/
+module.exports = router;
