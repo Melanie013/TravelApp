@@ -6,7 +6,9 @@ const User = require('../models/User.model')
 
 
 router.get('/signup', (req, res, next) => {
-	res.render('signup')
+	res.render('signup', {
+		style: "signup.css"
+	})
 });
 
 router.post('/signup', (req, res, next) => {
@@ -52,7 +54,10 @@ router.post('/signup', (req, res, next) => {
 
 
 router.get('/login', (req, res, next) => {
-	res.render('login')
+	res.render('login', {
+		style: "login.css"
+
+	} )
 });
 
 router.post('/login', (req, res, next) => {
