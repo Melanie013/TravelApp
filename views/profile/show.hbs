@@ -4,7 +4,14 @@
 <img src="images/ProfilePic.jpeg" alt="Profile-Pic">
 </div>
 
-<a href="/journey"><button>edit information</button></a>
+<a href="/journey/add"><button>edit information</button></a>
+
+
+{{#each allJourneysByUser}}
+<p>{{destination}}</p>
+<p>{{startDate}} - {{endDate}}</p>
+<p>{{description}}</p>
+{{/each}}
 
 <br>
 <br>
