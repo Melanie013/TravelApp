@@ -74,7 +74,7 @@ router.get("/profile", loginCheck(), (req, res, next) => {
 */
 
 
-});*/
+
 /*
 let accessCount = 0
 
