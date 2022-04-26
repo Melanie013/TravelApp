@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const express = require('express')
-const hbs = require('hbs')
+const hbs = require('hbs');
+const Journey = require("../models/Journey");
 
 const User = require('../models/User.model')
 
@@ -18,8 +19,16 @@ const loginCheck = () => {
 
   router.get("/profile", loginCheck(), (req, res, next) => {
     const loggedInUser = req.session.user.username
-   console.log(`this is the`,loggedInUser)
-    res.render("profile/show.hbs", {loggedInUser});
+    const userId = req.session.user._id
+
+    Journey.find({owner: userId})
+    .then(allJourneysByUser => {
+        console.log(allJourneysByUser)
+        res.render("profile/show.hbs", {loggedInUser, allJourneysByUser});
+
+    })
+ 
+  // console.log(`this is the`,loggedInUser)
   });
 /*
   router.get('/', (req, res) => {

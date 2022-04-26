@@ -40,7 +40,7 @@ router.post('/signup', (req, res, next) => {
 					password: hash
 				})
 					.then(createdUser => {
-						console.log(createdUser)
+						//console.log(createdUser)
 						res.redirect('/')
 					})
 					.catch(err => {
