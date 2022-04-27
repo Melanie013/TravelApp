@@ -17,6 +17,8 @@ const loginCheck = () => {
     }
   }
 
+
+
   router.get("/profile", loginCheck(), (req, res, next) => {
     const loggedInUser = req.session.user.username
     const userId = req.session.user._id
@@ -31,7 +33,23 @@ const loginCheck = () => {
  
   // console.log(`this is the`,loggedInUser)
   });
+
+
+
+  router.post('/journey/:journeyId/delete', (req, res, next) => {
+    Journey.findOneAndDelete(req.params.journeyId)
+        .then(() => {
+            res.redirect('/profile');
+        })
+        .catch(err => {
+            next(err);
+        })
+});
 /*
+
+
+
+
   router.get('/', (req, res) => {
     res.render('show')
 })
