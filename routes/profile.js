@@ -39,9 +39,9 @@ const loginCheck = () => {
 
   router.post('/journey/:journeyId/delete', (req, res, next) => {
     const {journeyId}= req.params
-    console.log(journeyId);
+   // console.log(journeyId);
   //const journeyIdInfo=  req.params.journeyId
-  console.log(`this is the`,journeyId)
+  //console.log(`this is the`,journeyId)
    Journey.findByIdAndDelete(journeyId)
         .then(() => {
             res.redirect('/profile');
@@ -50,8 +50,21 @@ const loginCheck = () => {
             next(err);
         })
         
-       console.log(`test`);
+     //  console.log(`test`);
 });
+
+/*
+router.get('/journey/:journeyId/edit', (req, res, next) => {
+  const { journeyId } = req.params;
+ 
+  Journey.findById(journeyId)
+    .then(bookToEdit => {
+      console.log(journeyToEdit);
+    })
+    .catch(error => next(error));
+});
+*/
+
 /*
 
 
