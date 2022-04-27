@@ -18,6 +18,8 @@ const loginCheck = () => {
     }
  } 
 
+
+
   router.get("/profile", loginCheck(), (req, res, next) => {
     const loggedInUser = req.session.user.username
     const userId = req.session.user._id
@@ -25,14 +27,36 @@ const loginCheck = () => {
 
     Journey.find({owner: userId})
     .then(allJourneysByUser => {
-        console.log(allJourneysByUser)
+        //console.log(allJourneysByUser)
         res.render("profile/show.hbs", {loggedInUser, allJourneysByUser});
 
     })
  
   // console.log(`this is the`,loggedInUser)
   });
+
+
+
+  router.post('/journey/:journeyId/delete', (req, res, next) => {
+    const {journeyId}= req.params
+    console.log(journeyId);
+  //const journeyIdInfo=  req.params.journeyId
+  console.log(`this is the`,journeyId)
+   Journey.findByIdAndDelete(journeyId)
+        .then(() => {
+            res.redirect('/profile');
+        })
+        .catch(err => {
+            next(err);
+        })
+        
+       console.log(`test`);
+});
 /*
+
+
+
+
   router.get('/', (req, res) => {
     res.render('show')
 })

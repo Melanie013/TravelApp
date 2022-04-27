@@ -34,7 +34,7 @@ router.get("/journey/add", (req, res, next) => {
     const {destination, startDate, endDate, description} = req.body
 console.log(req.body);
    // const {description} = req.body
-    console.log(`bla BLABLALALALLLALALA`,req.body)
+   // console.log(`bla `,req.body)
       Journey.create({destination, startDate,endDate, owner: loggedInUser, description})
               .then((createdJourney) => {
                  // User.findByIdAndUpdate(loggedInUser,{description}).then(() => 
@@ -48,6 +48,17 @@ console.log(req.body);
               
   });
 
+/*
+  router.post('/:travelId', (req, res, next) => {
+    const { travelId } = req.params.id;
+    console.log(`this is the `, req.params.id);
+   
+    Journey.findByIdAndRemove(travelId)
+      .then(() => res.redirect('/profile'))
+      .catch(error => next(error));
+  });
+
+*/
   
   
 
