@@ -1,17 +1,24 @@
 
-<h1>Hello {{loggedInUser}}</h1>
+<h1>Hello {{loggedInUser}} 🐝</h1>
+<h5>glad to have you here ☺️</h5>
 <div>
 <img src="images/ProfilePic.jpeg" alt="Profile-Pic">
 </div>
 
+<h3>
+Add new travel data ⚓️
+</h3>
 <a href="/journey/add"><button>edit information</button></a>
 
-
+<p>My journeys 🚌 ✈️ ⛴:</p>
 {{#each allJourneysByUser}}
+<hr>
 <p>{{destination}}</p>
 <p>{{startDate}} - {{endDate}}</p>
 <p>{{description}}</p>
+</hr>
 {{/each}}
 
 
 
+ 
