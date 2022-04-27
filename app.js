@@ -69,6 +69,9 @@ app.use("/", profile);
 const journey = require("./routes/travelDetails");
 app.use("/", journey);
 
+const buddy = require("./routes/FindYourBuddyPage");
+app.use("/", buddy);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

@@ -12,12 +12,12 @@ const journey = new Schema(
     },
     endDate: {
       type: Date
-  },
-  owner: {
+    },
+    owner: {
     type: Schema.Types.ObjectId,  
     ref: 'User.model'
     
-  },
+    },
     description: {
       type: String
     }
