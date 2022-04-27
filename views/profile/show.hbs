@@ -17,7 +17,13 @@ Add new travel data ⚓️
 <p>{{destination}}</p>
 <p>{{startDate}} - {{endDate}}</p>
 <p>{{description}}</p>
-<form action="/profile/{{_id}}/delete" method="POST">
+
+<form action="/journey/{{_id}}/edit" method="POST">
+<button>Edit</button>    
+</form>
+<p></p>
+
+<form action="/journey/{{_id}}/delete" method="POST">
 <button>Delete</button>    
 </form>
 </hr>
