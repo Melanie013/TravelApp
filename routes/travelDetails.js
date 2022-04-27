@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Journey = require('../models/Journey');
-const User = require("../models/User.model");
+const User = require("../models/User");
 
 
 

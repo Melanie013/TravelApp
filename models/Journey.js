@@ -15,7 +15,7 @@ const journey = new Schema(
     },
     owner: {
     type: Schema.Types.ObjectId,  
-    ref: 'User.model'
+    ref: 'User'
     
     },
     description: {

@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const Journey = require("../models/Journey");
 
 
-const User = require('../models/User.model')
+const User = require('../models/User')
 
 const loginCheck = () => {
     return (req, res, next) => {
