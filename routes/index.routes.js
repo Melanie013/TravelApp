@@ -21,6 +21,7 @@ router.get("/", (req, res, next) => {
   });
 });
 
+
 /*
 router.get('/profile', loginCheck(), (req, res, next) => {
 
