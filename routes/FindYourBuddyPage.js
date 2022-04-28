@@ -47,15 +47,3 @@ router.get('/findBuddy/:UserId', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-module.exports = router;
-
-
-
