@@ -75,6 +75,9 @@ app.use("/", buddy);
 const buddyProfile = require("./routes/buddyProfile");
 app.use("/", buddyProfile);
 
+const myDescription = require("./routes/descriptionForProfile");
+app.use("/", myDescription);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

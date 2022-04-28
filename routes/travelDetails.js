@@ -35,7 +35,7 @@ router.get("/journey/add", (req, res, next) => {
 console.log(req.body);
    // const {description} = req.body
    // console.log(`bla `,req.body)
-      Journey.create({destination, startDate,endDate, owner: loggedInUser, description})
+      Journey.create({destination, startDate,endDate,description, owner: loggedInUser})
               .then((createdJourney) => {
                  // User.findByIdAndUpdate(loggedInUser,{description}).then(() => 
                   res.redirect('/profile')
