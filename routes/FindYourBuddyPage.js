@@ -7,6 +7,8 @@ const User = require("../models/User");
 
 
 
+
+
 router.get('/findBuddy/:id', (req, res, next) => {
     const journeyId = req.params.id
     console.log(`show me the freaking`,'Id', journeyId)
@@ -29,8 +31,6 @@ router.get('/findBuddy/:id', (req, res, next) => {
             next(err)
           })
     }) 
-
-
 
 
 
