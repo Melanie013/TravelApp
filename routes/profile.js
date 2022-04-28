@@ -29,7 +29,7 @@ const loginCheck = () => {
     Journey.find({owner: userId})
     .then(allJourneysByUser => {
         //console.log(allJourneysByUser)
-        res.render("profile/show.hbs", {loggedInUser, allJourneysByUser, });
+        res.render("profile/show.hbs", {loggedInUser, allJourneysByUser, style: "profile.css" });
         
 
     })

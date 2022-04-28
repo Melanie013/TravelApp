@@ -12,12 +12,12 @@ router.get("/journey/add", (req, res, next) => {
   router.get('/profile/:id', (req, res, next) => {
     // console.log('books id')
     const id = req.params.id
-    console.log(`this is a test`, req.params.id)
-    console.log(id);
+    //console.log(`this is a test`, req.params.id)
+    //console.log(id);
     Journey.findById(id)
-    console.log(`this is a test`,User.findById(id))
+    //console.log(`this is a test`,User.findById(id))
       .then(TravelDataFromDB => {
-        console.log(`This nice little Data `, TravelDataFromDB)
+       // console.log(`This nice little Data `, TravelDataFromDB)
         res.render('profile/show', { travel: movieDataFromDB })
       })
       .catch(err => {
