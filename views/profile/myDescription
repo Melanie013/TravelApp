@@ -1,0 +1,6 @@
+<form action="/profile/myDescription" method="post">
+<label for="myDescription"></label>
+<textarea name="myDescription" id="description" cols="30" rows="10"></textarea>
+ 
+  <button type="submit">>Add</button>
+</form>
