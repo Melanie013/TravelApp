@@ -6,19 +6,19 @@ const User = require("../models/User");
 
 
 router.get("/journey/add", (req, res, next) => {
-    res.render("journey/add.hbs");
+    res.render("journey/add.hbs", {style: "information.css"});
   });
 
   router.get('/profile/:id', (req, res, next) => {
     // console.log('books id')
     const id = req.params.id
-    console.log(`this is a test`, req.params.id)
-    console.log(id);
+    //console.log(`this is a test`, req.params.id)
+    //console.log(id);
     Journey.findById(id)
-    console.log(`this is a test`,User.findById(id))
+    //console.log(`this is a test`,User.findById(id))
       .then(TravelDataFromDB => {
-        console.log(`This nice little Data `, TravelDataFromDB)
-        res.render('profile/show', { travel: movieDataFromDB })
+       // console.log(`This nice little Data `, TravelDataFromDB)
+        res.render('profile/show', { travel: TravelDataFromDB})
       })
       .catch(err => {
         next(err)

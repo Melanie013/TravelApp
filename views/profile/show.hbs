@@ -1,17 +1,17 @@
+<div class="profilHeader">
+<h1>Hi {{loggedInUser}} 👋🏼</h1>
+<h4>Glad to have you here 😍</h4>
 
-<h1>Hello {{loggedInUser}} 🐝</h1>
-<h5>glad to have you here ☺️</h5>
-<div>
 <img src="images/ProfilePic.jpeg" alt="Profile-Pic">
 </div>
 
 
 <h3>
-Add new travel data ⚓️
+Add new travel data:
 </h3>
-<a href="/journey/add"><button>edit information</button></a>
+<a href="/journey/add"><button>Edit information</button></a>
 
-<p>My journeys 🚌 ✈️ ⛴:</p>
+<p>My journeys 🚌 ✈️⛴:</p>
 {{#each allJourneysByUser}}
 <hr>
 <p>{{destination}}</p>
@@ -19,14 +19,14 @@ Add new travel data ⚓️
 <p>{{description}}</p>
 
 
-
-<p></p>
-
 <form action="/journey/{{_id}}/delete" method="POST">
-<button>Delete</button>    
+<button>Delete journey</button>    
 </form>
 </hr>
-<a href="/findBuddy/{{_id}}">Find your travel buddy</a>
+<br>
+<button><a href="/findBuddy/{{_id}}">Find your TravelBee</a></button>
+
+
 
 {{/each}}
 

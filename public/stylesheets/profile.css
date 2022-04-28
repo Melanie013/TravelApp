@@ -1,3 +1,11 @@
+.profileHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -9,5 +17,10 @@ body {
   h1 {
     color: 15px;
 
+  }
 
-}
+  button, a {
+
+    text-decoration: none;
+
+  }
