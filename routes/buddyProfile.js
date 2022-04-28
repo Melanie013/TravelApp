@@ -6,10 +6,33 @@ const Journey = require("../models/Journey");
 
 const User = require('../models/User')
 
-router.get('/buddyProfile', (req, res, next) => {
-    const journeyId = req.params.id
-    console.log(`show me the freaking`,'Id', journeyId)
-    Journey.findById(journeyId)
+router.get('/buddyProfile/:id', (req, res, next) => {
+    const yourBuddyId = req.params.id
+    console.log(`show me the`, yourBuddyId)
+        Journey.findById(yourBuddyId)
+            .then(travelBuddy =>{
+            const {destination, startDate, endDate} = travelBuddy
+        Journey.findOne({destination: destination, startDate: startDate, endDate: endDate})
+            .populate('owner')
+            .then(buddyFromDb => {
+            
+                res.render('buddyProfile', {buddy: buddyFromDb })
+
+
+            })
+
+            })
+
+            .catch(err => {
+                next(err)
+
+    //const buddyId = req.params.id.
+    //console.log(`show me the freaking`, buddyId)
+
+        //User.findById(buddyID)
+            //.then()
+    
+    /*Journey.findById(journeyId)
     .then(travelBuddy => {
         const {destination, startDate, endDate, owner} = travelBuddy
         console.log('ziel', destination)
@@ -26,10 +49,11 @@ router.get('/buddyProfile', (req, res, next) => {
         
         .catch(err => {
             next(err)
-          })
+          })*/
     }) 
+    
 
-
+})
 
 /*
 

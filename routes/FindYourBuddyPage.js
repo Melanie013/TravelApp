@@ -6,9 +6,6 @@ const User = require("../models/User");
 // find all users with same travel destination and date and show them on a different page 
 
 
-
-
-
 router.get('/findBuddy/:id', (req, res, next) => {
     const journeyId = req.params.id
     console.log(`show me the freaking`,'Id', journeyId)
