@@ -21,6 +21,7 @@ const loginCheck = () => {
 
 
   router.get("/profile", loginCheck(), (req, res, next) => {
+
     const loggedInUser = req.session.user.username
     const userId = req.session.user._id
     //const userDesctiption = req.session.user.description
@@ -28,7 +29,8 @@ const loginCheck = () => {
     Journey.find({owner: userId})
     .then(allJourneysByUser => {
         //console.log(allJourneysByUser)
-        res.render("profile/show.hbs", {loggedInUser, allJourneysByUser});
+        res.render("profile/show.hbs", {loggedInUser, allJourneysByUser, });
+        
 
     })
  
